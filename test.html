@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>test — Web Test Lab</title>
+    <meta name="author" content="Trần Quốc Nam" />
+    <meta name="keywords" content="HTML,CSS,JavaScript" />
+    <meta name="description" content="Starter HTML for lab1/ex1" />
+    
+    <meta og:title content="test — Web Test Lab" />
+    <meta og:description content="Starter HTML for lab1/ex1" />
+   
+    <meta og:img content="https://hcmiu.edu.vn/wp-content/uploads/2017/08/logo-vector-IU-01.png" />
+ 
+</head>
+
+
+
+<body>
+    <h2>Quadratic Equation</h2>
+
+    <table border="1">
+        <th >Quadratic</th>
+        <tr><th>Ax<sup>2</sup> + Bx + C</th></tr>
+        <tr scope="col">
+            <td>A = </td>
+            <td><input type="number" id ="a"></td>
+            <td><button onclick="compute()">compute</button></td>
+        </tr>
+        <tr>
+            <td>B = </td>
+            <td><input type="number" id = "b"></td>
+            <td>X1 = </td>
+            <td id = "x1"></td>
+        </tr>
+        <tr>
+            <td>C = </td>
+            <td><input type="number" id = "c"></td>
+            <td>X2 = </td>
+            <td id = "x2"></td>
+        </tr>
+
+    </table>
+    <script type="text/javascript">
+        function compute(){
+            var a = Number.parseFloat(document.getElementById("a").value);
+            var b = Number.parseFloat(document.getElementById("b").value);
+            var c = Number.parseFloat(document.getElementById("c").value);
+            var x1, x2;
+            
+            var delta = b*b - 4*a*c;
+            if (delta < 0){
+                x1 = "No real root";
+                x2 = "No real root";
+            } else if (delta == 0){
+                x1 = x2 = -b/(2*a);
+            } else {
+                x1 = (-b + Math.sqrt(delta))/(2*a);
+                x2 = (-b - Math.sqrt(delta))/(2*a);
+            }
+            setTimeout(() => {
+                document.getElementById("x1").innerText ="Thiên lí ơiii" ;
+            },2000);
+
+            setTimeout(()=>{
+                document.getElementById("x2").innerText="Em có thể chơi pickle ball?"
+            },4000)
+            
+            setTimeout(() => {
+                document.getElementById("x1").innerText = " x1 có giá trị bằng cân nặng của mẹ bạn: " + x1 ;
+                document.getElementById("x2").innerText = " x2 có giá trị bằng cân nặng của mẹ bạn: " + x2 ;
+            },8000);
+        }
+    </script>
+   
+<br><br><br><br>
+
+    <form action="POST">
+        <label for="Name">Name</label>
+        <input type="text">
+        <br>
+        <label for="Address">Address</label>
+        <input type="text"  id="address">
+        <button type="submit">Submit</button>
+        <br>
+        <label> gender </label>
+        <br>
+        <input type="radio" value="male", name="abc"> Male
+        <input type="radio" value="female", name="abc">female
+        <br>
+        <label for="DoB">Dob</label>
+        <br>
+        <script type = "text/javascript">
+            function populateDays(){
+                var select = document.getElementById("day");
+                for (var i = 1; i <= 31; i++){
+                    var option = document.createElement("option");
+                    option.value = i;
+                    option.text = i;
+                    select.appendChild(option);
+                }
+            }
+            function populateMonths(){
+                var select = document.getElementsByTagName("select")[1];
+                var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                for (var i = 0; i < monthNames.length; i++){
+                    var option = document.createElement("option");
+                    option.value = i+1;
+                    option.text = monthNames[i];
+                    select.appendChild(option);
+                }
+            }
+            function populateYears(){
+                var select = document.getElementsByTagName("select")[2];
+                for (var i = 1950; i <= 2023; i++){
+                    var option = document.createElement("option");
+                    option.value = i;
+                    option.text = i;
+                    select.appendChild(option);
+                }
+            }
+        </script>
+        <select id="day"> 
+            <script type="text/javascript">populateDays()</script>
+        </select>
+        <select id = "month"   > 
+            <script type="text/javascript">populateMonths()</script>    
+        </select>
+        <select id="year"> 
+            <script type="text/javascript">populateYears()</script>
+        </select>
+    </form>
+
+    <h3>login
+    </h3>
+    <form action="post">
+        <label for="email">email</label>
+        <input type="email">
+        <label for= "NOitems"> Number of items</label>
+        <input type="number" id="NOitems">
+        <label for="Reenter">Re-enter number of items</label>
+        <input type="number" id="Reenter">
+        <button type="submit" onclick="validate()">Order</button>
+    </form>
+<script>
+    function validate(){
+        var noitems = document.getElementById("NOitems").value;
+        var reenter = document.getElementById("Reenter").value;
+        var email = document.getElementById("email").value;
+        if(!email.includes("@")){
+        }
+           
+
+    }
+</script>
+</body>
+
+</html>
